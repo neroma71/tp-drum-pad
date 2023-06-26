@@ -27,7 +27,7 @@ switch(e.key){
          datakey="82";
           break;
    case "t":
-        datakey="83";
+        datakey="84";
            break;
    case "y":
         datakey="85";
@@ -42,17 +42,18 @@ switch(e.key){
         datakey="80"; 
            break;
        }
-       let sound = document.querySelector('audio[data-key="' + datakey + '"]');
+       let sound = document.querySelector(`audio[data-key=${datakey}]`);
        sound.currentTime = 0;
        sound.play();
     
-       let div = document.querySelector('div[data-key="' + datakey + '"]');
+       let div = document.querySelector(`div[data-key=${datakey}]`);
 
        function remove(){
         div.classList.remove('playing');
        }
         div.classList.add('playing');
-     setTimeout(remove, 100);
+
+    let myTime = setTimeout(remove, 100);
     }
 
     
