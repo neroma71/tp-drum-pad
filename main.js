@@ -8,8 +8,12 @@ pads.forEach((pad, index)=>{
        sounds[index].play(); 
     });
     });
-window.addEventListener('keydown', (e)=>{
+ window.addEventListener('keydown', (e)=>{
     soundplay(e);
+    
+    let soundTab=[];
+    soundTab.push(e.key);
+    console.log(soundTab);
 });
 function soundplay(e){
     let datakey;
@@ -45,15 +49,12 @@ switch(e.key){
        let sound = document.querySelector(`audio[data-key="${datakey}"]`);
        sound.currentTime = 0;
        sound.play();
-    
        let div = document.querySelector(`div[data-key="${datakey}"]`);
 
        function remove(){
         div.classList.remove('playing');
        }
         div.classList.add('playing');
-
-    let myTime = setTimeout(remove, 100);
+        setTimeout(remove, 100);
     }
 
-    
